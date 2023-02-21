@@ -383,7 +383,7 @@ public class Web3 : MonoBehaviour
 
     private Contract GetGoldTokenDrop()
     {
-        return ThirdwebManager.Instance.SDK.GetContract("0xDcf4E5f969c69F54Ef761c7A4AD21315F1281AA6");
+        return ThirdwebManager.Instance.SDK.GetContract("0x11DA0f57086a19977E46B548b64166411d839a30");
     }
     public async void setDiamondBalance()
     {
@@ -420,7 +420,7 @@ public class Web3 : MonoBehaviour
 
     private Contract GetDiamondTokenDrop()
     {
-        return ThirdwebManager.Instance.SDK.GetContract("0x27f342e6914733f3D0874156BbDC1016E6C3b2f6");
+        return ThirdwebManager.Instance.SDK.GetContract("0x489d47E592639Ba11107E84dd6CCA08F0892E27d");
     }
     public async void decreaseGoldToken(string amount)
     {
@@ -487,7 +487,7 @@ public class Web3 : MonoBehaviour
 
     private Contract GetEdition()
     {
-        return ThirdwebManager.Instance.SDK.GetContract("0xa3ADb006C64ea277227Da13a6B86df3E6B05bfD2");
+        return ThirdwebManager.Instance.SDK.GetContract("0x04B8D96d7266adcb8fF45a0Eb8AFB91D79e58481");
     }
 
     public async void buySkin1Gold()
@@ -589,7 +589,7 @@ public class Web3 : MonoBehaviour
     private Marketplace GetMarketplace()
     {
         return ThirdwebManager.Instance.SDK
-            .GetContract("0x0b096A838178D22B784599cE6eC23281a71a8430")
+            .GetContract("0xE173ded0B921Cf4268645DfE918AFe1F06a16125")
             .marketplace;
     }
 }

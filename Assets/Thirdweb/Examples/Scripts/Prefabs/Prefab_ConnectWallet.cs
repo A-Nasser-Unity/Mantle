@@ -108,6 +108,7 @@ public class Prefab_ConnectWallet : MonoBehaviour
 
             wallet = _wallet;
             OnConnected();
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("IsWalletConnected").Value = true;
             print($"Connected successfully to: {address}");
         }
         catch (Exception e)
@@ -122,7 +123,7 @@ public class Prefab_ConnectWallet : MonoBehaviour
         {
             Chain _chain = ThirdwebManager.Instance.chain;
             CurrencyValue nativeBalance = await ThirdwebManager.Instance.SDK.wallet.GetBalance();
-            balanceText.text = $"{nativeBalance.value.ToEth()} {nativeBalance.symbol}";
+            balanceText.text = $"{nativeBalance.value.ToEth()} BIT";
             walletAddressText.text = address.ShortenAddress();
             currentNetworkText.text = ThirdwebManager.Instance.chainIdentifiers[_chain];
             currentNetworkImage.sprite = networkSprites.Find(x => x.chain == _chain).sprite;
@@ -149,6 +150,7 @@ public class Prefab_ConnectWallet : MonoBehaviour
         {
             await ThirdwebManager.Instance.SDK.wallet.Disconnect();
             OnDisconnected();
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("IsWalletConnected").Value = false;
             print($"Disconnected successfully.");
 
         }

@@ -18,13 +18,14 @@ public enum Chain
     Arbitrum = 42161,
     ArbitrumGoerli = 421613,
     Binance = 56,
-    BinanceTestnet = 97
+    BinanceTestnet = 97,
+    MantleTestnet = 5001
 }
 
 public class ThirdwebManager : MonoBehaviour
 {
     [Header("SETTINGS")]
-    public Chain chain = Chain.Goerli;
+    public Chain chain = Chain.MantleTestnet;
     public List<Chain> supportedNetworks;
 
     public Dictionary<Chain, string> chainIdentifiers = new Dictionary<Chain, string>
@@ -43,6 +44,7 @@ public class ThirdwebManager : MonoBehaviour
         {Chain.ArbitrumGoerli, "arbitrum-goerli"},
         {Chain.Binance, "binance"},
         {Chain.BinanceTestnet, "binance-testnet"},
+        {Chain.MantleTestnet, "5001"}
     };
 
     public ThirdwebSDK SDK;
@@ -54,11 +56,11 @@ public class ThirdwebManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
         else
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+
 
 #if !UNITY_EDITOR
-        SDK = new ThirdwebSDK(chainIdentifiers[chain]);
+        SDK = new ThirdwebSDK("https://rpc.testnet.mantle.xyz");
 #endif
     }
-
 }
