@@ -252,7 +252,8 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {fileID: 6249824932938921153, guid: 9d363b2321baea34081e0c1ec8776f8a, type: 3}
+          value: {fileID: 6249824932938921153, guid: 9d363b2321baea34081e0c1ec8776f8a,
+            type: 3}
         - useVariable: 0
           name: 
           tooltip: 
@@ -288,7 +289,8 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {fileID: 229786186007235932, guid: 6f4cee8616c35764ea878c572056900a, type: 3}
+          value: {fileID: 229786186007235932, guid: 6f4cee8616c35764ea878c572056900a,
+            type: 3}
         - useVariable: 0
           name: 
           tooltip: 

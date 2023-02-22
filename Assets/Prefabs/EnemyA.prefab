@@ -1438,7 +1438,8 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: {fileID: 6484379022797274703, guid: a7ec3c16835c8a04e946632e8d1b7198, type: 3}
+          value: {fileID: 6484379022797274703, guid: a7ec3c16835c8a04e946632e8d1b7198,
+            type: 3}
         - useVariable: 0
           name: 
           tooltip: 
