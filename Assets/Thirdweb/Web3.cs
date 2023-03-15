@@ -346,6 +346,8 @@ public class Web3 : MonoBehaviour
         setDiamondBalance();
         setOwnSkin1();
         setOwnSkin2();
+        setOwnSkin3();
+        setOwnTower1();
         PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING0").Value = false;
     }
     public async void setGoldBalance()
@@ -485,6 +487,30 @@ public class Web3 : MonoBehaviour
         PlayMakerGlobals.Instance.Variables.FindFsmBool("PLAYERHAVESKIN2").Value = ownsNft;
     }
 
+    public async void setOwnSkin3()
+    {
+        string tokenId = "2";
+        // First, check to see if the you own the NFT
+        var owned = await GetEdition().ERC1155.GetOwned();
+
+        // if owned contains a token with the same ID as the listing, then you own it
+        bool ownsNft = owned.Exists(nft => nft.metadata.id == tokenId);
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("PLAYERHAVESKIN3").Value = ownsNft;
+    }
+
+    public async void setOwnTower1()
+    {
+        string tokenId = "3";
+        // First, check to see if the you own the NFT
+        var owned = await GetEdition().ERC1155.GetOwned();
+
+        // if owned contains a token with the same ID as the listing, then you own it
+        bool ownsNft = owned.Exists(nft => nft.metadata.id == tokenId);
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("PLAYERHAVETOWER1").Value = ownsNft;
+    }
+
     private Contract GetEdition()
     {
         return ThirdwebManager.Instance.SDK.GetContract("0x04B8D96d7266adcb8fF45a0Eb8AFB91D79e58481");
@@ -538,6 +564,54 @@ public class Web3 : MonoBehaviour
         PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING2").Value = false;
     }
 
+    public async void buySkin3Gold()
+    {
+        string listingId = "4";
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING9").Value = true;
+
+        var result = await GetMarketplace().BuyListing(listingId, 1);
+
+        var isSuccess = result.isSuccessful();
+
+        if (isSuccess)
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful9").Value = true;
+        }
+        else
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful9").Value = false;
+        }
+
+        setOwnSkin3();
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING9").Value = false;
+    }
+
+    public async void buyTower1Gold()
+    {
+        string listingId = "6";
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING11").Value = true;
+
+        var result = await GetMarketplace().BuyListing(listingId, 1);
+
+        var isSuccess = result.isSuccessful();
+
+        if (isSuccess)
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful11").Value = true;
+        }
+        else
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful11").Value = false;
+        }
+
+        setOwnTower1();
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING11").Value = false;
+    }
+
     public async void buySkin1Diamond()
     {
         string listingId = "2";
@@ -584,6 +658,54 @@ public class Web3 : MonoBehaviour
         setOwnSkin2();
 
         PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING5").Value = false;
+    }
+
+    public async void buySkin3Diamond()
+    {
+        string listingId = "5";
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING10").Value = true;
+
+        var result = await GetMarketplace().BuyListing(listingId, 1);
+
+        var isSuccess = result.isSuccessful();
+
+        if (isSuccess)
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful10").Value = true;
+        }
+        else
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful10").Value = false;
+        }
+
+        setOwnSkin3();
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING10").Value = false;
+    }
+
+    public async void buyTower1Diamond()
+    {
+        string listingId = "7";
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING12").Value = true;
+
+        var result = await GetMarketplace().BuyListing(listingId, 1);
+
+        var isSuccess = result.isSuccessful();
+
+        if (isSuccess)
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful12").Value = true;
+        }
+        else
+        {
+            PlayMakerGlobals.Instance.Variables.FindFsmBool("WasTransactionSuccessful12").Value = false;
+        }
+
+        setOwnTower1();
+
+        PlayMakerGlobals.Instance.Variables.FindFsmBool("LOADING12").Value = false;
     }
 
     private Marketplace GetMarketplace()
