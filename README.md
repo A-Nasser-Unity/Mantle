@@ -1,8 +1,6 @@
 # Mantle
 
-[Try game IPFS](https://gateway.ipfscdn.io/ipfs/QmT4Jv9bPb5ipZ3W7a3GzbPFTyHJHXJzGptgXCB4jzLqhj/)
-
-[Try game](https://spiffy-daifuku-a2c85a.netlify.app/)
+[Try game](https://town-gates-mantle.vercel.app/)
 
 Town Gates is a tower defense game, where the player control a Howitzer in middle of a town and try to defend the Gates to prevent the enemies from entering the town by breaking the gates.
 
